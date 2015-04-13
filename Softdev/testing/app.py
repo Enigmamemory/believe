@@ -1,0 +1,27 @@
+from flask import Flask
+from flask import render_template
+import random
+
+app = Flask(__name__)
+app.debug = True
+
+@app.route('/')
+def alex():
+
+    noun = ["turtle", "fish", "cat", "hedgehog", "snapping turtle"]
+    verb = ["runs","walks","sleeps","reads"]
+    adv = ["nicely","quietly","quickly","awkwardly"]
+
+    s1 = noun[int(random.random()*len(noun))]
+    s2 = verb[int(random.random()*len(verb))]
+    s3 = adv[int(random.random()*len(adv))]
+
+    return render_template('blah.html', s1=s1, s2=s2, s3=s3)
+
+if __name__ == '__main__':
+    #app.debug = True
+    #app.secret_key = "hime"
+    app.run()
+
+
+
